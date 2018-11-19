@@ -1,0 +1,54 @@
+.sitemap {
+	padding: 50px 0;
+
+	h1 {
+		margin-bottom: 30px;
+	}
+
+	.inner {
+		// Top level pages
+
+		> ul {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			padding-left: 0;
+
+			@supports (display: grid) {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				grid-gap: 20px;
+			}
+
+			> li {
+				list-style-type: none;
+				background: $greybg;
+				padding: 50px;
+				border-radius: 10px;
+				flex-basis: 24%;
+				flex-grow: 1;
+				margin: 10px;
+
+				@supports (display: grid) {
+					margin: 0;
+				}
+
+				> a {
+					display: block;
+					font: 400 24px/26px $montserrat;
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		// Second level pages
+
+		> ul > li > ul {
+			// Set the bullet style for all list styles for this level or deeper
+
+			li {
+				list-style-type: disc !important;
+			}
+		}
+	}
+}
